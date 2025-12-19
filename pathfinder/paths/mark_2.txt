@@ -1,6 +1,0 @@
--- Single position data for Pathfinder
--- Saved on: 2025-12-05 23:47:53
--- Saved as mark_2.txt
--- Format: x, y, z, zone
-
--80.224541,-72.267815,4.000000,256
