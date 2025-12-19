@@ -1,0 +1,20 @@
+-- Zone: Riverne - Site #A01
+return {
+  ["Aiatar"] = { { name = "Giant scale", average_rate = "100.0%" }, { name = "Sable cuisses", average_rate = "60.0%" } },
+  ["Air Elemental"] = { { name = "Wind cluster", average_rate = "157.1%" } },
+  ["Atomic Cluster"] = { { name = "Cluster core", average_rate = "104.1%" }, { name = "Cluster arm", average_rate = "9.0%" }, { name = "Pinch of cluster ash", average_rate = "14.8%" }, { name = "Pot of clustered tar", average_rate = "17.3%" } },
+  ["Carmine Dobsonfly"] = { { name = "Dobson bandana", average_rate = "49.9%" }, { name = "Jaeger ring", average_rate = "20.5%" }, { name = "Voyager sallet", average_rate = "12.5%" } },
+  ["Cloud Hippogryph"] = { { name = "Hippogryph tailfeather", average_rate = "64.1%" } },
+  ["Earth Elemental"] = { { name = "Earth cluster", average_rate = "24.4%" } },
+  ["Firedrake"] = { { name = "Giant scale", average_rate = "45.5%" }, { name = "Wyvern skin", average_rate = "16.2%" }, { name = "Wyvern wing", average_rate = "8.0%" } },
+  ["Flamedrake"] = { { name = "Giant scale", average_rate = "47.3%" }, { name = "Wyvern skin", average_rate = "16.6%" }, { name = "Wyvern wing", average_rate = "6.0%" } },
+  ["Hawker"] = { { name = "Insect wing", average_rate = "31.2%" } },
+  ["Hawkertrap"] = { { name = "Flytrap leaf", average_rate = "7.0%" } },
+  ["Heliodromos"] = { { name = "Hippogryph tailfeather", average_rate = "77.0%" }, { name = "Mountain gaiters", average_rate = "26.2%" } },
+  ["Hippogryph"] = { { name = "Hippogryph tailfeather", average_rate = "54.1%" } },
+  ["Maze Lurker"] = { { name = "Shall shell", average_rate = "100.0%" }, { name = "Handful of pugil scales", average_rate = "100.0%" } },
+  ["Riverne Vulture"] = { { name = "Bird feather", average_rate = "18.1%" }, { name = "Copper key", average_rate = "19.4%" }, { name = "Bird egg", average_rate = "6.8%" } },
+  ["Shieldtrap"] = { { name = "Sennight bangles", average_rate = "100.0%" }, { name = "Flytrap leaf", average_rate = "100.0%" } },
+  ["Thunder Elemental"] = { { name = "Lightning cluster", average_rate = "181.2%" } },
+  ["Ziryu"] = { { name = "Sack of lugworm sand", average_rate = "31.7%" }, { name = "Sack of little worm mulch", average_rate = "24.9%" } },
+}

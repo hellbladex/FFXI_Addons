@@ -1,0 +1,8 @@
+-- Zone: Dragon's Aery
+return {
+  ["Bark Tarantula"] = { { name = "Spider web", average_rate = "20.2%" } },
+  ["Darter"] = { { name = "Insect wing", average_rate = "41.9%" }, { name = "Wind cluster", average_rate = "0.01%" } },
+  ["Demonic Rose"] = { { name = "Malboro vine", average_rate = "85.8%" }, { name = "Lacquer tree log", average_rate = "7.1%" } },
+  ["Fafnir"] = { { name = "Andvaranauts", average_rate = "70.3%" }, { name = "Aegishjalmr", average_rate = "59.5%" }, { name = "Hrotti", average_rate = "30.9%" }, { name = "Dragon talon", average_rate = "101.7%" }, { name = "Handful of dragon scales", average_rate = "125.0%" }, { name = "Dragon heart", average_rate = "60.9%" }, { name = "Neptunal abjuration: head", average_rate = "36.7%" }, { name = "Cup of sweet tea", average_rate = "15.3%" }, { name = "Aquarian abjuration: feet", average_rate = "28.5%" }, { name = "Earthen abjuration: hands", average_rate = "29.2%" }, { name = "Aquarian abjuration: hands", average_rate = "28.9%" }, { name = "Balmung", average_rate = "29.5%" }, { name = "Ridill", average_rate = "2.3%" } },
+  ["Nidhogg"] = { { name = "Dragon heart", average_rate = "101.3%" }, { name = "Handful of Nidhogg's scales", average_rate = "89.7%" }, { name = "Vial of dragon blood", average_rate = "122.6%" }, { name = "Neptunal abjuration: legs", average_rate = "32.2%" }, { name = "Wyrm beard", average_rate = "71.2%" }, { name = "Martial abjuration: body", average_rate = "29.0%" }, { name = "Earthen abjuration: body", average_rate = "41.1%" }, { name = "Slice of dragon meat", average_rate = "13.0%" }, { name = "Aquarian abjuration: body", average_rate = "28.5%" } },
+}

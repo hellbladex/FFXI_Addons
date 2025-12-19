@@ -1,0 +1,22 @@
+-- Zone: Crawlers' Nest [S]
+return {
+  ["Abatwa"] = { { name = "Aptant of secan", average_rate = "12.7%" }, { name = "Aptant of ishis", average_rate = "17.7%" } },
+  ["Brass Quadav"] = { { name = "Heavy Quadav chestplate", average_rate = "6.0%" }, { name = "Heavy Quadav backplate", average_rate = "3.4%" } },
+  ["Bronze Quadav"] = { { name = "Heavy Quadav backplate", average_rate = "11.9%" }, { name = "Heavy Quadav chestplate", average_rate = "7.6%" } },
+  ["Electrumcap"] = { { name = "Agaricus mushroom", average_rate = "2.0%" } },
+  ["Emerald Quadav"] = { { name = "Shard of obsidian", average_rate = "16.6%" }, { name = "Scroll of Enwater II", average_rate = "19.5%" }, { name = "Bottled pixie", average_rate = "1.7%" } },
+  ["Fiendish Leechkeeper"] = { { name = "Imp horn", average_rate = "1.3%" } },
+  ["Fire Elemental"] = { { name = "Fire cluster", average_rate = "150.0%" } },
+  ["Heliodor Quadav"] = { { name = "Scroll of Bind", average_rate = "5.6%" }, { name = "Scroll of Blind", average_rate = "4.2%" } },
+  ["Labyrinth Lizard"] = { { name = "Lizard tail", average_rate = "27.4%" }, { name = "Lizard skin", average_rate = "8.7%" }, { name = "Lizard egg", average_rate = "16.0%" } },
+  ["Lugh"] = { { name = "Wolfram steel ingot", average_rate = "245.4%" }, { name = "Scintillant ingot", average_rate = "54.6%" }, { name = "Chipped scimitar", average_rate = "51.3%" }, { name = "Chunk of cobalt ore", average_rate = "57.2%" }, { name = "Setanta's ledelsens", average_rate = "25.0%" }, { name = "Orichalcum ingot", average_rate = "8.6%" } },
+  ["Morille Mortelle"] = { { name = "Spurrer beret", average_rate = "33.3%" } },
+  ["Old Quadav"] = { { name = "Dancer's testimony", average_rate = "3.3%" }, { name = "Heavy Quadav backplate", average_rate = "7.2%" }, { name = "Heavy Quadav chestplate", average_rate = "3.9%" } },
+  ["Processionaire"] = { { name = "Spool of silk thread", average_rate = "17.8%" } },
+  ["Puroboros"] = { { name = "Pinch of bomb ash", average_rate = "24.6%" }, { name = "Bomb arm", average_rate = "14.7%" } },
+  ["Sapphirine Quadav"] = { { name = "Quadav backplate", average_rate = "24.2%" }, { name = "Dancer's testimony", average_rate = "2.3%" }, { name = "Scroll of Barsleep", average_rate = "3.1%" }, { name = "Scroll of Sneak", average_rate = "0.78%" }, { name = "Scroll of Paralyze", average_rate = "1.6%" }, { name = "Scroll of Protectra", average_rate = "1.6%" } },
+  ["Silver Quadav"] = { { name = "Shard of obsidian", average_rate = "15.6%" }, { name = "Bottled pixie", average_rate = "2.1%" } },
+  ["Water Elemental"] = { { name = "Water cluster", average_rate = "141.7%" } },
+  ["Wespe"] = { { name = "Pot of honey", average_rate = "23.8%" }, { name = "Giant stinger", average_rate = "4.1%" }, { name = "Beehive chip", average_rate = "55.8%" }, { name = "Serving of royal jelly", average_rate = "10.7%" } },
+  ["Witch Hazel"] = { { name = "Treant bulb", average_rate = "35.5%" }, { name = "Bag of fruit seeds", average_rate = "17.1%" } },
+}

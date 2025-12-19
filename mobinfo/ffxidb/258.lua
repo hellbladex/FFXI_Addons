@@ -1,0 +1,21 @@
+-- Zone: Rala Waterways
+return {
+  ["Baleful Tarichuk"] = { { name = "Lizard egg", average_rate = "21.5%" }, { name = "Eft skin", average_rate = "10.1%" }, { name = "High-quality eft skin", average_rate = "2.8%" }, { name = "Sacred Kindred's crest", average_rate = "2.0%" } },
+  ["Barnacle Crab"] = { { name = "Carrier crab carapace", average_rate = "120.2%" }, { name = "Slice of land crab meat", average_rate = "55.1%" }, { name = "Sacred Kindred's crest", average_rate = "1.4%" } },
+  ["Chalybeous Slime"] = { { name = "Vial of slime oil", average_rate = "60.5%" }, { name = "Sacred Kindred's crest", average_rate = "3.0%" } },
+  ["Depthswalker Crab"] = { { name = "Carrier crab carapace", average_rate = "46.0%" }, { name = "Slice of land crab meat", average_rate = "18.9%" }, { name = "High-quality crab shell", average_rate = "2.6%" }, { name = "Sacred Kindred's crest", average_rate = "1.3%" } },
+  ["Duskbringer Bat"] = { { name = "Bat wing", average_rate = "45.8%" }, { name = "Bat fang", average_rate = "19.5%" }, { name = "Vial of fiend blood", average_rate = "2.7%" }, { name = "Sacred Kindred's crest", average_rate = "2.3%" } },
+  ["Duskjaw Obdella"] = { { name = "Vial of fiend blood", average_rate = "20.1%" }, { name = "Sacred Kindred's crest", average_rate = "1.5%" } },
+  ["Flavescent Slime"] = { { name = "Vial of slime oil", average_rate = "61.7%" }, { name = "Sacred Kindred's crest", average_rate = "2.6%" } },
+  ["New Moon Bats"] = { { name = "Bat wing", average_rate = "46.3%" }, { name = "Vial of fiend blood", average_rate = "9.8%" }, { name = "Bat fang", average_rate = "19.7%" }, { name = "Sacred Kindred's crest", average_rate = "2.3%" } },
+  ["Pewter Diremite"] = { { name = "Bottle of avatar blood", average_rate = "10.3%" }, { name = "Spool of bloodthread", average_rate = "22.0%" }, { name = "Sacred Kindred's crest", average_rate = "2.2%" } },
+  ["Plantpassage Slug"] = { { name = "Slug eye", average_rate = "2.9%" }, { name = "Sacred Kindred's crest", average_rate = "2.2%" } },
+  ["Rustwater Toad"] = { { name = "Sacred Kindred's crest", average_rate = "1.2%" } },
+  ["Sawtooth Pugil"] = { { name = "Handful of pugil scales", average_rate = "16.0%" } },
+  ["Skittering Spider"] = { { name = "Spider web", average_rate = "20.1%" }, { name = "Sacred Kindred's crest", average_rate = "1.8%" } },
+  ["Spoutdrenched Toad"] = { { name = "Sacred Kindred's crest", average_rate = "2.2%" } },
+  ["Stillwater Funguar"] = { { name = "Danceshroom", average_rate = "10.7%" }, { name = "Sleepshroom", average_rate = "55.6%" }, { name = "Woozyshroom", average_rate = "23.5%" }, { name = "Sacred Kindred's crest", average_rate = "2.5%" } },
+  ["Unrelenting Eft"] = { { name = "High-quality eft skin", average_rate = "2.9%" }, { name = "Eft skin", average_rate = "10.0%" }, { name = "Lizard egg", average_rate = "20.4%" }, { name = "Sacred Kindred's crest", average_rate = "2.7%" } },
+  ["Waterway Pugil"] = { { name = "Handful of pugil scales", average_rate = "18.4%" }, { name = "Shall shell", average_rate = "9.1%" }, { name = "Sacred Kindred's crest", average_rate = "1.4%" } },
+  ["Weatherworn Leech"] = { { name = "Vial of fiend blood", average_rate = "18.1%" }, { name = "Sacred Kindred's crest", average_rate = "1.3%" } },
+}

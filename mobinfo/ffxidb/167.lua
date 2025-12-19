@@ -1,0 +1,23 @@
+-- Zone: Bostaunieux Oubliette
+return {
+  ["Arioch"] = { { name = "Arioch fang", average_rate = "106.2%" }, { name = "Bat wing", average_rate = "143.8%" }, { name = "Vial of beastman blood", average_rate = "62.5%" } },
+  ["Blind Bat"] = { { name = "Bat wing", average_rate = "30.4%" }, { name = "Fossilized fang", average_rate = "7.8%" }, { name = "Vial of fiend blood", average_rate = "2.3%" }, { name = "Wind cluster", average_rate = "0.08%" } },
+  ["Bloodsucker"] = { { name = "Vial of fiend blood", average_rate = "2.7%" }, { name = "Vial of beastman blood", average_rate = "1.3%" }, { name = "Bloodbead ring", average_rate = "0.02%" }, { name = "Pigeon's blood ruby", average_rate = "0.10%" }, { name = "Carbuncle's ruby", average_rate = "0.16%" }, { name = "Water cluster", average_rate = "0.01%" } },
+  ["Dabilla"] = { { name = "Fossilized fang", average_rate = "7.2%" }, { name = "Revival tree root", average_rate = "14.5%" }, { name = "Wolf hide", average_rate = "24.8%" }, { name = "Dark cluster", average_rate = "0.06%" } },
+  ["Dark Aspic"] = { { name = "Vial of slime oil", average_rate = "69.0%" } },
+  ["Drexerion The Condemned"] = { { name = "Shadow mask", average_rate = "36.7%" }, { name = "Flagellant's crossbow", average_rate = "13.3%" } },
+  ["Funnel Bats"] = { { name = "Bat fang", average_rate = "16.1%" }, { name = "Vial of fiend blood", average_rate = "7.6%" }, { name = "Bat wing", average_rate = "34.3%" }, { name = "Vial of beastman blood", average_rate = "1.9%" }, { name = "Wind cluster", average_rate = "0.04%" } },
+  ["Garm"] = { { name = "Revival tree root", average_rate = "14.8%" }, { name = "Wolf hide", average_rate = "28.5%" }, { name = "Dark cluster", average_rate = "0.03%" } },
+  ["Gespenst"] = { { name = "Square of silk cloth", average_rate = "21.0%" }, { name = "Revival tree root", average_rate = "46.2%" }, { name = "Ice cluster", average_rate = "0.03%" } },
+  ["Haunt"] = { { name = "Revival tree root", average_rate = "29.1%" }, { name = "Square of wool cloth", average_rate = "13.8%" }, { name = "Ice cluster", average_rate = "0.02%" } },
+  ["Hecatomb Hound"] = { { name = "Wolf hide", average_rate = "28.7%" }, { name = "Revival tree root", average_rate = "15.2%" } },
+  ["Manes"] = { { name = "Square of taffeta cloth", average_rate = "271.1%" } },
+  ["Mousse"] = { { name = "Vial of slime oil", average_rate = "44.6%" } },
+  ["Nachtmahr"] = { { name = "Revival tree root", average_rate = "30.2%" }, { name = "Seasoning stone", average_rate = "9.3%" }, { name = "Fossilized fang", average_rate = "10.5%" }, { name = "Square of silk cloth", average_rate = "17.9%" }, { name = "Ice cluster", average_rate = "0.93%" } },
+  ["Panna Cotta"] = { { name = "Seasoning stone", average_rate = "7.1%" }, { name = "Fossilized fang", average_rate = "7.1%" }, { name = "Vial of slime oil", average_rate = "16.5%" } },
+  ["Phanduron The Condemned"] = { { name = "Shadow mask", average_rate = "41.5%" }, { name = "Ascalon", average_rate = "13.4%" } },
+  ["Sewer Syrup"] = { { name = "Jelly ring", average_rate = "74.2%" }, { name = "Vial of slime oil", average_rate = "122.7%" } },
+  ["Shii"] = { { name = "Sukesada", average_rate = "96.6%" }, { name = "Wolf hide", average_rate = "89.7%" }, { name = "Revival tree root", average_rate = "44.8%" } },
+  ["Werebat"] = { { name = "Bat wing", average_rate = "33.8%" }, { name = "Bat fang", average_rate = "16.1%" }, { name = "Vial of fiend blood", average_rate = "8.1%" }, { name = "Vial of beastman blood", average_rate = "2.1%" }, { name = "Wind cluster", average_rate = "0.03%" } },
+  ["Wurdalak"] = { { name = "Seasoning stone", average_rate = "14.7%" }, { name = "Fossilized fang", average_rate = "6.8%" } },
+}

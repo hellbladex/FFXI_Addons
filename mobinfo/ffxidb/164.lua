@@ -1,0 +1,21 @@
+-- Zone: Garlaige Citadel [S]
+return {
+  ["Buarainech"] = { { name = "Wolfram steel ingot", average_rate = "221.6%" }, { name = "Scintillant ingot", average_rate = "56.0%" }, { name = "Chunk of cobalt ore", average_rate = "52.6%" }, { name = "Blunt lance", average_rate = "44.8%" }, { name = "Shrewd pumps", average_rate = "21.6%" }, { name = "Orichalcum ingot", average_rate = "11.2%" } },
+  ["Citadel Pipistrelles"] = { { name = "Aptant of ishis", average_rate = "15.2%" }, { name = "Aptant of bellum", average_rate = "8.1%" } },
+  ["Dire Bat"] = { { name = "Bat wing", average_rate = "20.1%" }, { name = "Bat fang", average_rate = "13.3%" }, { name = "Vial of fiend blood", average_rate = "4.8%" }, { name = "Vial of beastman blood", average_rate = "1.4%" } },
+  ["Earth Elemental"] = { { name = "Earth cluster", average_rate = "156.2%" } },
+  ["Elatha"] = { { name = "Wolfram steel ingot", average_rate = "219.6%" }, { name = "Bricta's cuffs", average_rate = "27.2%" }, { name = "Dull claymore", average_rate = "51.9%" }, { name = "Scintillant ingot", average_rate = "44.3%" }, { name = "Chunk of cobalt ore", average_rate = "56.3%" }, { name = "Orichalcum ingot", average_rate = "8.2%" } },
+  ["Explosure"] = { { name = "Pinch of bomb ash", average_rate = "33.3%" }, { name = "Bomb arm", average_rate = "16.3%" } },
+  ["Fiendish Leechkeeper"] = { { name = "Imp horn", average_rate = "5.8%" } },
+  ["Incubus Bats"] = { { name = "Bat wing", average_rate = "22.3%" }, { name = "Bat fang", average_rate = "13.7%" }, { name = "Vial of fiend blood", average_rate = "5.4%" }, { name = "Vial of beastman blood", average_rate = "1.7%" } },
+  ["Mousse"] = { { name = "Vial of slime oil", average_rate = "38.5%" } },
+  ["Scolopendrid"] = { { name = "Scorpion claw", average_rate = "56.0%" }, { name = "Scorpion shell", average_rate = "7.9%" } },
+  ["Thunder Elemental"] = { { name = "Lightning cluster", average_rate = "150.0%" } },
+  ["Yagudo Abbot"] = { { name = "One hundred eight-knot quipu", average_rate = "27.9%" }, { name = "Yagudo feather", average_rate = "18.0%" } },
+  ["Yagudo Lutenist"] = { { name = "Block of Yagudo glue", average_rate = "24.4%" }, { name = "One hundred eight-knot quipu", average_rate = "14.2%" }, { name = "Scroll of Warding Round", average_rate = "15.0%" }, { name = "Scroll of Goddess's Hymnus", average_rate = "11.8%" } },
+  ["Yagudo Missionary"] = { { name = "One hundred eight-knot quipu", average_rate = "24.3%" }, { name = "Yagudo kote", average_rate = "11.1%" } },
+  ["Yagudo Prior"] = { { name = "One hundred eight-knot quipu", average_rate = "18.5%" }, { name = "Scroll of Aero III", average_rate = "3.7%" }, { name = "Scroll of Aeroga III", average_rate = "0.93%" }, { name = "Scroll of Aeroga II", average_rate = "1.9%" }, { name = "Scroll of Aero IV", average_rate = "0.93%" } },
+  ["Yagudo Pythoness"] = { { name = "One hundred eight-knot quipu", average_rate = "27.5%" }, { name = "Air Spirit pact", average_rate = "5.2%" } },
+  ["Yagudo Templar"] = { { name = "One hundred eight-knot quipu", average_rate = "33.6%" }, { name = "Yagudo kote", average_rate = "10.9%" } },
+  ["Yagudo Zealot"] = { { name = "Yagudo feather", average_rate = "24.4%" }, { name = "Bottled pixie", average_rate = "8.8%" }, { name = "One hundred eight-knot quipu", average_rate = "23.1%" } },
+}

@@ -1,0 +1,9 @@
+-- Zone: Provenance
+return {
+  ["Asb"] = { { name = "Transitory abjuration: hands", average_rate = "0.41%" }, { name = "Foreboding abjuration: hands", average_rate = "3.5%" }, { name = "Corvine abjuration: hands", average_rate = "4.2%" }, { name = "Lenitive abjuration: hands", average_rate = "1.3%" } },
+  ["Provenance Watcher"] = { { name = "Sanus ensis", average_rate = "55.6%" }, { name = "Plenitas virga", average_rate = "66.7%" }, { name = "Adamas", average_rate = "12.7%" }, { name = "Scroll of Arise", average_rate = "6.0%" }, { name = "Drachenhorn", average_rate = "5.9%" }, { name = "Tessera saio", average_rate = "5.5%" }, { name = "Hyaline hat", average_rate = "5.8%" }, { name = "Scroll of Meteor", average_rate = "5.8%" } },
+  ["Rukh"] = { { name = "Foreboding abjuration: hands", average_rate = "3.5%" }, { name = "Lenitive abjuration: hands", average_rate = "1.6%" }, { name = "Corvine abjuration: hands", average_rate = "4.6%" }, { name = "Transitory abjuration: hands", average_rate = "0.55%" } },
+  ["Sarbaz"] = { { name = "Transitory abjuration: hands", average_rate = "3.5%" }, { name = "Corvine abjuration: hands", average_rate = "1.9%" }, { name = "Lenitive abjuration: hands", average_rate = "3.4%" }, { name = "Supernal abjuration: hands", average_rate = "0.94%" } },
+  ["Shah"] = { { name = "Supernal abjuration: hands", average_rate = "5.4%" }, { name = "Foreboding abjuration: hands", average_rate = "1.3%" }, { name = "Transitory abjuration: hands", average_rate = "1.9%" }, { name = "Lenitive abjuration: hands", average_rate = "0.97%" } },
+  ["Wazir"] = { { name = "Supernal abjuration: hands", average_rate = "4.9%" }, { name = "Transitory abjuration: hands", average_rate = "2.3%" }, { name = "Lenitive abjuration: hands", average_rate = "1.0%" }, { name = "Foreboding abjuration: hands", average_rate = "1.6%" } },
+}

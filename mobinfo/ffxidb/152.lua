@@ -1,0 +1,3 @@
+-- Zone: Altar Room
+return {
+}
