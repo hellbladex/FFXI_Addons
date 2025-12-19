@@ -1,0 +1,11 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <max_node_jump_dist>50</max_node_jump_dist>
+        <max_queue_size>1000</max_queue_size>
+        <min_distance>1</min_distance>
+        <node_tolerance>0.5</node_tolerance>
+        <record_while_busy>false</record_while_busy>
+        <update_interval>0.05</update_interval>
+    </global>
+</settings>
