@@ -78,6 +78,7 @@ defaults.min_distance = 1.0   -- adjusted from 1 to 5 in hopes of fix in laggy a
 defaults.max_queue_size = 1000  -- Slave: Maximum number of positions to queue.
 defaults.node_tolerance = 0.5 -- Slave: Distance to target before moving to the next node.
 defaults.max_node_jump_dist = 50.0 -- Set the execution interval (0.1 seconds = 10 updates per second)
+defaults.record_while_busy = false -- If true, Master records/sends even when engaged (status != 0) or charmed.
 
 settings = config.load(defaults)
 settings:save()
@@ -88,7 +89,7 @@ local min_distance = settings.min_distance   -- adjusted from 1 to 5 in hopes of
 local max_queue_size = settings.max_queue_size  -- Slave: Maximum number of positions to queue.
 local node_tolerance = settings.node_tolerance -- Slave: Distance to target before moving to the next node.
 local max_node_jump_dist = settings.max_node_jump_dist -- Slave: If distance between current node and next is > this, clear queue.
-
+local record_while_busy = settings.record_while_busy
 
 
 
@@ -125,15 +126,19 @@ windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **clear** : Clears all 
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **status / s** : Shows the current path queue length and settings.', ADDON_NAME))
 windower.add_to_chat(HELP_COLOR, '---')
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **FILE I/O**', ADDON_NAME))
-windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **export <filename.txt>** : (Slave Only) Saves the current path queue to a file in the /paths folder.', ADDON_NAME))
-windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **import <filename.txt>** : (Slave Only) Loads a path from the /paths folder, replacing the current queue.', ADDON_NAME))
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **mark** : (Master Only) Records your current position to a sequential mark_N.txt file.', ADDON_NAME))
+windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **export <filename.txt>** : (Slave Only) Saves the current path queue to a file in the /paths folder.', ADDON_NAME))
+windower.add_to_chat(HELP_COLOR, string.format(':: %s ::   In order to export you must do //pf stop on the slave and then run the route with the master.', ADDON_NAME))
+windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **import <filename.txt>** : (Slave Only) Loads a path from the /paths folder, replacing the current queue.', ADDON_NAME))
+windower.add_to_chat(HELP_COLOR, string.format(':: %s ::   Import can be used to run a saved path on the fly, for instance moving slaves to a pre-recorded spot via send.', ADDON_NAME))
 windower.add_to_chat(HELP_COLOR, '---')
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **TUNING**', ADDON_NAME))
+windower.add_to_chat(HELP_COLOR, string.format(':: %s ::   Settings do not get auto saved if you find settings you like adjust them in the /data/settings.xml', ADDON_NAME))
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **send <dist>** : (Master Only) Sets min. distance (yalms) Master moves before sending an update. (Current: %.2f)', ADDON_NAME, min_distance))
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **jump <dist>** : (Slave Only) Sets the max distance (yalms) between nodes before clearing the queue (teleport detection). (Current: %.2f)', ADDON_NAME, max_node_jump_dist))
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **interval <hz>** : Sets the addon clock rate (Current: %.2f)', ADDON_NAME, 1/update_interval))
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **help** : Displays this help message.', ADDON_NAME))
+windower.add_to_chat(HELP_COLOR, string.format(':: %s :: **busy** : (Master Only) Toggles recording even when engaged or charmed. (Current: %s)', ADDON_NAME, record_while_busy and 'ON' or 'OFF'))
 end
 
 local function reset_state()
@@ -154,7 +159,7 @@ end
 
 local function show_queue_status()
     local length = #path_queue
-    local status_message = string.format(':: %s :: Path queue length: %d / %d -- Max jump: %d -- Distance to send: %.2f yalms -- Refresh Rate %d hz.', ADDON_NAME, length, max_queue_size, max_node_jump_dist, min_distance, 1/update_interval)
+    local status_message = string.format(':: %s :: Path queue length: %d / %d -- Max jump: %.2f -- Distance to send: %.2f yalms -- Refresh Rate %d hz -- Follow while Engaged %s .', ADDON_NAME, length, max_queue_size, max_node_jump_dist, min_distance, 1/update_interval, record_while_busy and 'ON' or 'OFF')
     windower.add_to_chat(LOG_COLOR, status_message)
 end
 
@@ -303,34 +308,46 @@ end)
 local function follow_path()
     -- ** Use centralized player_data **
     if not player_data.is_valid then
-        windower.ffxi.run(false)
+        --windower.ffxi.run(false)
         return
     end
 
     local p_x = player_data.x
     local p_y = player_data.y
+    local p_zone = player_data.zone 
 		
     if #path_queue == 0 then
-        windower.ffxi.run(false) 
+        --windower.ffxi.run(false) 
         return
     end
 
-    -- SLAVE RULE: Get the next position in the queue
+    
     local current_target = path_queue[1]
+    
+    -- Check if the Slave has jumped/teleported away from the path/zone
+    if p_zone ~= current_target.zone then
+        -- Zone mismatch with the target node's zone
+        windower.ffxi.run(false)
+        path_queue = {}
+        windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: SLAVE ZONE JUMP DETECTED! Slave is in zone %d, but the next node is in zone %d. Path cleared.', ADDON_NAME, p_zone, current_target.zone))
+        return
+    end
+    
+	local dist_to_next_node = calculate_distance(p_x, p_y, current_target.x, current_target.y)
+
 
     -- SLAVE RULE: Check distance and delete the node if reached
-    if calculate_distance(p_x, p_y, current_target.x, current_target.y) < node_tolerance then
+    if dist_to_next_node < node_tolerance then -- Use the pre-calculated distance
         
-        -- Check for a large distance jump to the NEXT node before removing the current one.
+        -- ... (The existing 'Check for a large distance jump to the NEXT node' logic remains here) ...
         if #path_queue >= 2 then
             local next_target = path_queue[2]
-            local dist_to_next_node = calculate_distance(current_target.x, current_target.y, next_target.x, next_target.y)
+            local dist_to_next_node_in_path = calculate_distance(current_target.x, current_target.y, next_target.x, next_target.y)
             
-            if dist_to_next_node > max_node_jump_dist then
+            if dist_to_next_node_in_path > max_node_jump_dist then
                 -- Distance jump is too large. Clear queue and stop.
                 windower.ffxi.run(false)
-                path_queue = {} -- Clears path_queue and logs the clearance
-                --windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: FATAL NODE JUMP DETECTED! Distance: %.2f > %.2f. Path cleared.', ADDON_NAME, dist_to_next_node, max_node_jump_dist))
+                path_queue = {} 
                 return
             end
         end
@@ -392,7 +409,9 @@ local function record_and_send()
     end
 
     -- ** Use player_data.status and player_data.is_charmed **
-	if should_record and player_data.status == 0 and player_data.is_charmed == false then 
+	local is_free = player_data.status == 0 or player_data.status == 5 or player_data.status == 85 and player_data.is_charmed == false
+	
+	if should_record and (record_while_busy or is_free) then
         last_master_pos = current_pos
         
         -- FORMAT: PF|x|y|z|zone
@@ -631,7 +650,9 @@ local function update_role_status(cmd, arg)
             -- Set the flag to false. The currently running coroutine will exit on its next check.
             pathfinder_is_running = false
             windower.add_to_chat(LOG_COLOR, string.format(':: %s :: Pathfinder loop stopped.', ADDON_NAME))
-        else
+			clear_path_queue()
+			windower.ffxi.run(false)
+		else
             windower.add_to_chat(LOG_COLOR, string.format(':: %s :: Pathfinder is already stopped.', ADDON_NAME))
         end
 	elseif cmd == 'master' then
@@ -647,17 +668,32 @@ local function update_role_status(cmd, arg)
     elseif cmd == 'status' or cmd == 's' then 
         show_queue_status()
 	elseif cmd == 'export' then 
+		if role ~= 'slave' then
+            windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: The **export** command is only available when your role is **Slave**.', ADDON_NAME))
+            return
+        end
         save_path_queue_to_file(arg)
     elseif cmd == 'import' then 
+		if role ~= 'slave' then
+            windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: The **import** command is only available when your role is **Slave**.', ADDON_NAME))
+            return
+        end
         if arg and type(arg) == 'string' and arg:trim() ~= '' then
             import_path_queue_from_file(arg)
         else
             windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: Missing filename. Use: import <filename.txt>.', ADDON_NAME))
         end
 	elseif cmd == 'mark' then
+		if role ~= 'master' then
+            windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: The **mark** command is only available when your role is **MASTER**.', ADDON_NAME))
+            return
+        end
         save_current_position_to_file()
 	elseif cmd == 'jump' then 
-       
+		if role ~= 'slave' then
+            windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: The **jump** command is only available when your role is **SLAVE**.', ADDON_NAME))
+            return
+        end
         local new_dist = tonumber(arg) 
         
         if new_dist and new_dist > 0 then
@@ -667,7 +703,10 @@ local function update_role_status(cmd, arg)
             windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: Invalid distance "%s". Must be a number > 0. Current: %.2f.', ADDON_NAME, tostring(arg), max_node_jump_dist))
         end
 	elseif cmd == 'send' then 
-       
+		if role ~= 'master' then
+            windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: The **send** command is only available when your role is **MASTER**.', ADDON_NAME))
+            return
+        end
         local new_acc = tonumber(arg) 
         
         if new_acc and new_acc > 0 then
@@ -687,8 +726,22 @@ local function update_role_status(cmd, arg)
         else
             windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: Invalid frequency "%s". Must be a number > 0. Current: %.2f Hz.', ADDON_NAME, tostring(arg), 1/update_interval))
         end
+	elseif cmd == 'busy' then
+        if role ~= 'master' then
+            windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: The **busy** command is only available when your role is **MASTER**.', ADDON_NAME))
+            return
+        end
+        -- Toggle the state
+        record_while_busy = not record_while_busy
+        settings.record_while_busy = record_while_busy -- Save the change to the settings table
+        --settings:save()                               -- Persist the setting to the config file
+
+        local state_str = record_while_busy and 'ON' or 'OFF'
+        
+        
+        windower.add_to_chat(LOG_COLOR, string.format(':: %s :: **record_while_busy** set to **%s**. (Master will record/send even when engaged/charmed).', ADDON_NAME, state_str))
     else
-        windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: Unknown command "%s". Use: master | slave | start | stop | clear | status | help | send | jump <dist> | interval <hz> | export <filename.txt> | import <filename.txt> | mark', ADDON_NAME, cmd))
+        windower.add_to_chat(ERROR_COLOR, string.format(':: %s :: ERROR: Unknown command "%s". Use: master | slave | start | stop | clear | status | help | busy |send | jump <dist> | interval <hz> | export <filename.txt> | import <filename.txt> | mark', ADDON_NAME, cmd))
     end
 end
 
@@ -726,5 +779,5 @@ windower.register_event('logout', function()
 end)
 
 -- Initialization message
-windower.add_to_chat(LOG_COLOR, string.format(':: %s :: Commands (//pf): master | slave | start | stop | clear | status | help | send | jump <dist> | interval <hz> |  export <filename.txt> | import <filename.txt> | mark', ADDON_NAME, tostring(arg)))
+windower.add_to_chat(LOG_COLOR, string.format(':: %s :: Commands (//pf): master | slave | start | stop | clear | status | help | busy | send | jump <dist> | interval <hz> |  export <filename.txt> | import <filename.txt> | mark', ADDON_NAME, tostring(arg)))
 windower.add_to_chat(HELP_COLOR, string.format(':: %s :: Everyone is a SLAVE on load!!! Make sure to set someone as the MASTER!!!', ADDON_NAME, tostring(arg)))
