@@ -61,6 +61,7 @@ local last_master_pos = {}
 local player_name = nil 
 
 
+
 -- ** CENTRALIZED PLAYER DATA STORAGE **
 local player_data = {
     name = nil,
@@ -69,7 +70,7 @@ local player_data = {
     y = nil,
     z = nil,
     zone = nil,
-    is_charmed = false, 
+	is_charmed = false, 
     is_valid = false    -- Indicates if a full set of data was successfully retrieved
 }
 defaults = {}
@@ -212,16 +213,17 @@ local function refresh_player_data()
     
     -- Get zone info 
     local zone_info = windower.ffxi.get_info()
-
+	
+	
     -- Check if we got all necessary info
-    if player_mob_info and zone_info then
+    if player_mob_info and zone_info and not zone_info.mog_house and zone_info.zone ~= 280 then
         
         -- Aggressively cast and validate coordinates/zone
         player_data.x = tonumber(player_mob_info.x)
         player_data.y = tonumber(player_mob_info.y)
         player_data.z = tonumber(player_mob_info.z)
         player_data.zone = tonumber(zone_info.zone)
-        
+         
         -- Pull data points directly from mob object
         player_data.name = player_name
         player_data.status = player_mob_info.status
@@ -238,6 +240,7 @@ local function refresh_player_data()
     else
         player_data.is_valid = false
     end
+	
 end
 
 --------------------------------------------------------------------------------
