@@ -12,6 +12,8 @@ if not success then
     print("FFXIDeck: Port 12345 is busy (another instance is already listening).")
     print("FFXIDeck: This instance will still receive commands via Windower IPC.")
 else
+	local ip, port = server:getsockname()
+    print("FFXIDeck: Successfully listening on " .. tostring(ip) .. ":" .. tostring(port))
     server:listen(0)
     server:settimeout(0)
     print("FFXIDeck: Master Socket listener started on port 12345.")
