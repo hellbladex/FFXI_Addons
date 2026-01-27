@@ -3,4 +3,4 @@ make sure to load the addon
 launch the ffxideck.exe
 click settings to adjust some aspecs or deal with profiles
 click add to add buttons then right click the button and edit and such
-![Description of image](/Images/Screenshot 2026-01-27 041900.png)
+
