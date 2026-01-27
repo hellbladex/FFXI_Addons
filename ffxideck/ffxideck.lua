@@ -6,6 +6,7 @@ local socket = require("socket")
 local server = socket.tcp()
 
 -- Bind settings
+-- change from 127.0.0.1 to 0.0.0.0 to connect from another pc
 local success, err = server:bind("127.0.0.1", 12345)
 if not success then
     print("FFXIDeck: Port 12345 is busy (another instance is already listening).")
