@@ -155,6 +155,7 @@ end
 
 local function clear_path_queue()
     path_queue = {}
+	windower.ffxi.run(false)
     windower.add_to_chat(LOG_COLOR, string.format(':: %s :: Path queue manually CLEARED. Length: 0.', ADDON_NAME))
 end
 
