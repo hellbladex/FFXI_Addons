@@ -37,7 +37,7 @@
 2. Place it into your `Windower4/addons` directory.
 3. In-game, load it via the console:
    ```lua
-   //lua load ffxideck
+   lua load ffxideck
    
 ### 2. The App
 1. Launch `FfxiDeck.exe`.
@@ -45,7 +45,7 @@
     * Right-click any button to access the **Edit** menu.
     * **Label**: Display name for the button.
     * **Target**: Character name to run the command on (or "All").
-    * **Command**: The FFXI command (e.g., `/ma "Cure IV" <t>` or `//input /ja "Provoke" <t>`).
+    * **Command**: The FFXI command (e.g., `lua load addon_name` or `input /ja "Provoke" <t>` or `input /ja "Light Arts" <me>; pause 1; input /ja "Addendum White" <me>`).
 
 ---
 
