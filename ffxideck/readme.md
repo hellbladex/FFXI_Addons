@@ -50,7 +50,7 @@
 ---
 
 ## 🛠️ Advanced Controls
-* **Swap Positions**: `Ctrl + Left Click` a button (it will dim), then click another button to swap them.
+* **Swap Positions**: `Ctrl + Left Click` a button (it will dim), then click another button to swap them. Click same button as the first to cancel.
 * **Profiles**: Type a name in the Save Profile overlay to create a new `.json` layout in the `/profiles` folder.
 * **Auto-Save**: Changes to button colors, sizes, and commands are saved automatically to the active profile.
 
