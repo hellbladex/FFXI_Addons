@@ -5,18 +5,23 @@ _addon.version = '1.2'
 local socket = require("socket")
 local server = socket.tcp()
 
+local HELP_COLOR = 200
 -- Bind settings
 -- change from 127.0.0.1 to 0.0.0.0 to connect from another pc
 local success, err = server:bind("127.0.0.1", 12345)
 if not success then
-    print("FFXIDeck: Port 12345 is busy (another instance is already listening).")
-    print("FFXIDeck: This instance will still receive commands via Windower IPC.")
+	windower.add_to_chat(HELP_COLOR, 'FFXIDeck: Port 12345 is busy (another instance is already listening).')
+	windower.add_to_chat(HELP_COLOR, 'FFXIDeck: This instance will still receive commands via Windower IPC.')
+    --print("FFXIDeck: Port 12345 is busy (another instance is already listening).")
+    --print("FFXIDeck: This instance will still receive commands via Windower IPC.")
 else
 	local ip, port = server:getsockname()
-    print("FFXIDeck: Successfully listening on " .. tostring(ip) .. ":" .. tostring(port))
+	windower.add_to_chat(HELP_COLOR, 'FFXIDeck: Successfully listening on '  .. tostring(ip) .. ":" .. tostring(port))
+    --print("FFXIDeck: Successfully listening on " .. tostring(ip) .. ":" .. tostring(port))
     server:listen(0)
     server:settimeout(0)
-    print("FFXIDeck: Master Socket listener started on port 12345.")
+	windower.add_to_chat(HELP_COLOR, 'FFXIDeck: Master Socket listener started.')
+    --print("FFXIDeck: Master Socket listener started on port 12345.")
 end
 
 local update_interval = 0.1
