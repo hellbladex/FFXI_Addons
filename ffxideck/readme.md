@@ -1,6 +1,6 @@
-# FFXIDeck
+# Kupo_Deck
 
-**FFXIDeck** is a customizable, virtual macro interface for Final Fantasy XI. Inspired by physical stream decks, it allows you to trigger commands, macros, and scripts across multiple game instances via a TCP socket connection.
+**Kupo_Deck** is a customizable, virtual macro interface for Final Fantasy XI. Inspired by physical stream decks, it allows you to trigger commands, macros, and scripts across multiple game instances via a TCP socket connection.
 
 ## 📁 Project Structure
 * **App/**: The C# Avalonia desktop application (the visual grid controller).
@@ -37,16 +37,16 @@
 2. Place it into your `Windower4/addons` directory.
 3. In-game, load it via the console:
    ```lua
-   lua load ffxideck
+   lua load Kupo_Deck
    
 ### 2. The App
-1. Launch `FfxiDeck.exe`.
+1. Launch `Kupo_Deck.exe`.
 2. **Configure Buttons**:
     * Right-click any button to access the **Edit** menu.
     * **Label**: Display name for the button.
     * **Target**: Character name to run the command on (or "All").
     * **Command**: The FFXI command (e.g., `lua load addon_name` or `input /ja "Provoke" <t>` or `input /ja "Light Arts" <me>; pause 1; input /ja "Addendum White" <me>`).
-3. Linux users can use the Ffxideck binary inside the Linux folder and make executable. (Minimal testing done)
+3. Linux users can use the Kupo_Deck binary inside the Linux folder and make executable. (Minimal testing done)
 ---
 
 ## 🛠️ Advanced Controls
@@ -60,4 +60,4 @@
 
 **Note on Development**: This project was developed with the assistance of AI to help streamline UI layout, logic optimization, and documentation.
 
-*FFXIDeck is a fan-made tool and is not affiliated with Square Enix.*
+*Kupo_Deck is a fan-made tool and is not affiliated with Square Enix.*
