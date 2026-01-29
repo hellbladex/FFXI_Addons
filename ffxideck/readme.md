@@ -46,7 +46,7 @@
     * **Label**: Display name for the button.
     * **Target**: Character name to run the command on (or "All").
     * **Command**: The FFXI command (e.g., `lua load addon_name` or `input /ja "Provoke" <t>` or `input /ja "Light Arts" <me>; pause 1; input /ja "Addendum White" <me>`).
-
+3. Linux users can use the Ffxideck4linux binary and make executable. (Minimal testing done)
 ---
 
 ## 🛠️ Advanced Controls
