@@ -53,7 +53,8 @@
 * **Swap Positions**: `Ctrl + Left Click` a button (it will dim), then click another button to swap them. Click same button as the first to cancel.
 * **Profiles**: In Settings click save and type a name in to create a new `.json` layout in the `/profiles` folder.
 * **Auto-Save**: Changes to button colors, sizes, and commands are saved automatically to the active profile. (If doing a heavy overhaul you may want to backup your profile first!)
-
+* **Multi-Action Support**: Buttons can be configured with a Local Path. This allows a single click to send a command to FFXI while simultaneously opening a folder, or just launching an application or opening a website in your browser.
+* **Local Path**: Enter a file path (`C:\Games\FFXI`), an application (`calc.exe`), or a URL (`https://www.ffxiah.com`) or (`www.ffxiah.com`) to open it when the button is clicked.
 --- 
 ## 🤝 Contributing & Credits
 
