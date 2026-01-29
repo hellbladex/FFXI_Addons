@@ -52,7 +52,7 @@
 ## 🛠️ Advanced Controls
 * **Swap Positions**: `Ctrl + Left Click` a button (it will dim), then click another button to swap them. Click same button as the first to cancel.
 * **Profiles**: In Settings click save and type a name in to create a new `.json` layout in the `/profiles` folder.
-* **Auto-Save**: Changes to button colors, sizes, and commands are saved automatically to the active profile.
+* **Auto-Save**: Changes to button colors, sizes, and commands are saved automatically to the active profile. (If doing a heavy overhaul you may want to backup your profile first!)
 
 --- 
 ## 🤝 Contributing & Credits
