@@ -34,7 +34,7 @@ function ffxideck_loop()
     if success then
         local client = server:accept()
         if client then
-            client:settimeout(2) 
+            client:settimeout(0) 
             local line, err = client:receive()
             if not err and line and line ~= "" then
                 -- Broadcast the command to ALL local windower instances
