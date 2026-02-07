@@ -27,7 +27,7 @@ function ffxideck_loop()
         -- UDP check is nearly instant
         local data, ip, port = udp:receivefrom()
         if data and data ~= "" then
-			print("DEBUG: Received raw data -> " .. data)
+			--print("DEBUG: Received raw data -> " .. data)
             data = data:gsub("^%s*(.-)%s*$", "%1")
             windower.send_ipc_message(IPC_PREFIX .. data)
             process_command(data)
