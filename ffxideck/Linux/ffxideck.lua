@@ -6,7 +6,7 @@ local socket = require("socket")
 local udp = socket.udp()
 
 -- Setup UDP
-local success, err = udp:setsockname("0.0.0.0", 12345)
+local success, err = udp:setsockname("127.0.0.1", 12345)
 udp:settimeout(0) 
 
 local HELP_COLOR = 200
@@ -27,6 +27,7 @@ function ffxideck_loop()
         -- UDP check is nearly instant
         local data, ip, port = udp:receivefrom()
         if data and data ~= "" then
+			print("DEBUG: Received raw data -> " .. data)
             data = data:gsub("^%s*(.-)%s*$", "%1")
             windower.send_ipc_message(IPC_PREFIX .. data)
             process_command(data)
