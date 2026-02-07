@@ -25,13 +25,15 @@ function ffxideck_loop()
 
     if success then
         -- UDP check is nearly instant
-        local data, ip, port = udp:receivefrom()
-        if data and data ~= "" then
-			--print("DEBUG: Received raw data -> " .. data)
-            data = data:gsub("^%s*(.-)%s*$", "%1")
-            windower.send_ipc_message(IPC_PREFIX .. data)
-            process_command(data)
-        end
+        local ok, data, ip, port = pcall(udp.receivefrom, udp)
+		if ok and data and data ~= "" then
+			data = data:gsub("^%s*(.-)%s*$", "%1")
+			windower.send_ipc_message(IPC_PREFIX .. data)
+		local cmd_ok, cmd_err = pcall(process_command, data)
+			if not cmd_ok then
+				windower.add_to_chat(HELP_COLOR, 'FFXIDeck Error: ' .. tostring(cmd_err))
+			end
+		end
     end
 
     -- Schedule next check in 0.1 seconds
